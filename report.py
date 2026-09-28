@@ -26,7 +26,7 @@ def build_html_report(result):
 </body></html>"""
 
 def build_pdf_report(result):
-    a = result["ipsec_analysis"]
+    a = result
     buf = BytesIO()
     doc = SimpleDocTemplate(buf, pagesize=A4, rightMargin=36,leftMargin=36,topMargin=36,bottomMargin=36)
     styles = getSampleStyleSheet()
