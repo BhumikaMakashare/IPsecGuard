@@ -7,7 +7,7 @@ from reportlab.lib import colors
 from io import BytesIO
 
 def build_html_report(result):
-    a = result["ipsec_analysis"]
+    a = result
     rows = "".join(
         f"<tr><td>{escape(f['status'])}</td><td>{escape(f['check'])}</td><td>{escape(f['evidence'])}</td></tr>"
         for f in result["security_assessment"]["findings"]
