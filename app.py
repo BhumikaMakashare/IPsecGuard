@@ -29,7 +29,7 @@ def analyze_bytes(data: bytes, filename: str):
     return result
 
 def show_result(result):
-    a = result["ipsec_analysis"]
+    a = result
     ml = result.get("ml_classification", {})
     findings = result["security_assessment"]["findings"]
 
