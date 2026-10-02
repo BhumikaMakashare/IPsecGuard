@@ -243,19 +243,35 @@ h3 {
     color: #F8F4E9;
     font-weight: 700;
 }
+/* =========================
+   DOTS
+   ========================= */
+.status-dot {
+    display: inline-block;
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-right: 5px;
+    line-height: 1;
+}
 
 .status-pass {
-    color: #502D55;
+    color: #2E8B57;
 }
 
 .status-warning {
-    color: #935073;
+    color: #C62828;
 }
 
 .status-unknown {
     color: #935073;
+    font-size: 1rem;
+    border: 2px solid #935073;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    line-height: 14px;
 }
-
 </style>
 """, unsafe_allow_html=True)
 
@@ -369,13 +385,15 @@ def show_result(result):
     
     st.subheader("Security Assessment")
     for f in findings:
-        icon = {
-            "PASS": "●",
-            "WARNING": "●",
-            "UNKNOWN": "○"
-        }.get(f["status"], "•")
-        with st.expander(f'{icon} {f["status"]} — {f["check"]}'):
-            st.write(f["evidence"])
+       icon = {
+            "PASS": '<span class="status-dot status-pass">●</span>',
+            "WARNING": '<span class="status-dot status-warning">●</span>',
+            "UNKNOWN": '<span class="status-dot status-unknown">?</span>'
+         }.get(f["status"], '<span class="status-dot">●</span>')
+       with st.expander(
+            f'{icon} {f["status"]} — {f["check"]}',
+            expanded=(f["status"] == "PASS" and f == findings[0])
+        ):
 
     st.subheader("Observed Security Associations")
     sa_rows = []
