@@ -136,7 +136,16 @@ def show_result(result):
     with o2:
         st.write("**Endpoints:**")
         for e in a["endpoints"]:
-            st.code(f'{e["source"]}  →  {e["destination"]}')
+            st.markdown(
+             f"""
+             <div class="endpoint-line">
+                <span class="endpoint-address">{e["source"]}</span>
+                <span class="endpoint-arrow">→</span>
+                <span class="endpoint-address">{e["destination"]}</span>
+             </div>
+             """,
+             unsafe_allow_html=True
+             )
 
     st.subheader("Protocol Composition")
     chart = pd.DataFrame({
