@@ -384,16 +384,21 @@ def show_result(result):
     st.altair_chart(graph, use_container_width=True)
     
     st.subheader("Security Assessment")
+    
     for f in findings:
-       icon = {
-            "PASS": '<span class="status-dot status-pass">●</span>',
-            "WARNING": '<span class="status-dot status-warning">●</span>',
-            "UNKNOWN": '<span class="status-dot status-unknown">?</span>'
-         }.get(f["status"], '<span class="status-dot">●</span>')
-         with st.expander(
-            f'{icon} {f["status"]} — {f["check"]}',
-            expanded=(f["status"] == "PASS" and f == findings[0])
-            ):
+        status = f["status"]
+    
+        if status == "PASS":
+            icon = "●"
+        elif status == "WARNING":
+            icon = "●"
+        elif status == "UNKNOWN":
+            icon = "?"
+        else:
+            icon = "●"
+    
+        with st.expander(f"{icon} {status} — {f['check']}"):
+            st.write(f["evidence"])
 
     st.subheader("Observed Security Associations")
     sa_rows = []
