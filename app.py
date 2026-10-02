@@ -243,35 +243,7 @@ h3 {
     color: #F8F4E9;
     font-weight: 700;
 }
-/* =========================
-   DOTS
-   ========================= */
-.status-dot {
-    display: inline-block;
-    font-size: 1.15rem;
-    font-weight: 800;
-    margin-right: 5px;
-    line-height: 1;
-}
 
-.status-pass {
-    color: #2E8B57;
-}
-
-.status-warning {
-    color: #C62828;
-}
-
-.status-unknown {
-    color: #935073;
-    font-size: 1rem;
-    border: 2px solid #935073;
-    border-radius: 50%;
-    width: 18px;
-    height: 18px;
-    text-align: center;
-    line-height: 14px;
-}
 </style>
 """, unsafe_allow_html=True)
 
@@ -389,13 +361,13 @@ def show_result(result):
         status = f["status"]
     
         if status == "PASS":
-            icon = "●"
+            icon = ":green[⬤]"
         elif status == "WARNING":
-            icon = "●"
+            icon = ":red[⬤]"
         elif status == "UNKNOWN":
-            icon = "?"
+            icon = ":violet[?]"
         else:
-            icon = "●"
+            icon = ":violet[⬤]"
     
         with st.expander(f"{icon} {status} — {f['check']}"):
             st.write(f["evidence"])
