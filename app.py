@@ -191,8 +191,8 @@ h3 {
    ========================= */
 
 [data-testid="stAlert"] {
-    background: rgba(147, 80, 115, 0.08) !important;
-    border: 1px solid rgba(147, 80, 115, 0.35) !important;
+    background: #F8F4E9 !important;
+    border: 1px solid #935073 !important;
     color: #502D55 !important;
 }
 
@@ -243,6 +243,28 @@ h3 {
 .ipsec-footer span:first-child {
     color: #502D55;
     font-weight: 700;
+}
+/* =========================
+   Soft Component Borders
+   ========================= */
+
+[data-testid="stExpander"] {
+    border: 1px solid #935073 !important;
+    border-radius: 4px !important;
+    background: transparent !important;
+}
+
+[data-testid="stFileUploader"] {
+    border: 1px solid #935073 !important;
+    background: transparent !important;
+}
+
+[data-testid="stFileUploaderDropzone"] {
+    background: #F8F4E9 !important;
+}
+
+[data-testid="stFileUploaderDropzoneInstructions"] {
+    color: #935073 !important;
 }
 </style>
 """, unsafe_allow_html=True)
