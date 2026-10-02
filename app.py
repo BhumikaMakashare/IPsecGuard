@@ -186,6 +186,19 @@ h3 {
 .sa-table-row > div:not(:last-child) {
     border-right: 1px solid #935073;
 }
+/* =========================
+   ML Analysis Info
+   ========================= */
+
+[data-testid="stAlert"] {
+    background: rgba(147, 80, 115, 0.08) !important;
+    border: 1px solid rgba(147, 80, 115, 0.35) !important;
+    color: #502D55 !important;
+}
+
+[data-testid="stAlert"] p {
+    color: #502D55 !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
