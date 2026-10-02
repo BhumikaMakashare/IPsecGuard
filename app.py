@@ -180,19 +180,19 @@ def show_result(result):
         
     st.subheader("Protocol Composition")
     
-        chart = pd.DataFrame({
-                "Protocol": ["IKE / ISAKMP", "ESP", "Other"],
-                "Packets": [
-                    a["ike"]["packet_count"],
-                    a["esp"]["packet_count"],
-                    max(
-                        result["packet_count"]
-                        - a["ike"]["packet_count"]
-                        - a["esp"]["packet_count"],
-                        0
-                    )
-                ]
-            })
+    chart = pd.DataFrame({
+            "Protocol": ["IKE / ISAKMP", "ESP", "Other"],
+            "Packets": [
+            a["ike"]["packet_count"],
+            a["esp"]["packet_count"],
+            max(
+                result["packet_count"]
+                 - a["ike"]["packet_count"]
+                 - a["esp"]["packet_count"],
+                 0
+                 )
+             ]
+         })
         
     st.bar_chart(
             chart,
