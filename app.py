@@ -199,6 +199,51 @@ h3 {
 [data-testid="stAlert"] p {
     color: #502D55 !important;
 }
+/* =========================
+   Header
+   ========================= */
+
+.ipsec-header {
+    padding: 18px 0 22px 0;
+    border-bottom: 1px solid rgba(147, 80, 115, 0.30);
+    margin-bottom: 24px;
+}
+
+.ipsec-brand {
+    color: #502D55;
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.1;
+}
+
+.ipsec-tagline {
+    color: #935073;
+    font-size: 0.92rem;
+    margin-top: 6px;
+    letter-spacing: 0.1px;
+}
+/* =========================
+   Footer
+   ========================= */
+
+.ipsec-footer {
+    margin-top: 55px;
+    padding: 18px 0;
+    border-top: 1px solid rgba(147, 80, 115, 0.30);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: #935073;
+    font-size: 0.78rem;
+}
+
+.ipsec-footer span:first-child {
+    color: #502D55;
+    font-weight: 700;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -378,8 +423,17 @@ def show_result(result):
     r1.download_button("Download HTML Report", html_bytes, "ipsecguard_report.html", "text/html")
     r2.download_button("Download PDF Report", pdf_bytes, "ipsecguard_report.pdf", "application/pdf")
 
-st.title("IPsecGuard")
-st.caption("IPsec VPN Protocol Analyzer & Security Assessment Platform")
+st.markdown(
+    """
+    <div class="ipsec-header">
+        <div class="ipsec-brand">IPsecGuard</div>
+        <div class="ipsec-tagline">
+            IPsec VPN Protocol Analyzer & Security Assessment Platform
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 st.write("Analyze IPsec VPN captures, extract observable protocol evidence, assess security characteristics, and generate a report.")
 
 with st.expander("How it works", expanded=True):
@@ -407,3 +461,13 @@ if "result" in st.session_state:
     show_result(st.session_state["result"])
 else:
     st.info("Choose **TRY DEMO** to explore IPsecGuard immediately, or upload your own capture.")
+st.markdown(
+    """
+    <div class="ipsec-footer">
+        <span>IPsecGuard</span>
+        <span>IPsec VPN Security Assessment</span>
+        <span>SIH 2026 • Team ABHEDYA</span>
+    </div>
+    """,
+    unsafe_allow_html=True
+)    
