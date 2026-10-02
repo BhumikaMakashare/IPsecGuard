@@ -244,6 +244,18 @@ h3 {
     font-weight: 700;
 }
 
+.status-pass {
+    color: #502D55;
+}
+
+.status-warning {
+    color: #935073;
+}
+
+.status-unknown {
+    color: #935073;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -357,7 +369,11 @@ def show_result(result):
     
     st.subheader("Security Assessment")
     for f in findings:
-        icon = {"PASS":"✅", "WARNING":"⚠️", "UNKNOWN":"❔"}.get(f["status"], "•")
+        icon = {
+            "PASS": "●",
+            "WARNING": "●",
+            "UNKNOWN": "○"
+        }.get(f["status"], "•")
         with st.expander(f'{icon} {f["status"]} — {f["check"]}'):
             st.write(f["evidence"])
 
