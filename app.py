@@ -198,7 +198,7 @@ def show_result(result):
             chart,
             x="Protocol",
             y="Packets",
-            color=["#502D55", "#935073", "#F6DBC0"],
+            color="#502D55",
             use_container_width=True
         )
     
