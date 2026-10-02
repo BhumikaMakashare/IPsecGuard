@@ -179,15 +179,28 @@ def show_result(result):
              )
 
     st.subheader("Protocol Composition")
+
     chart = pd.DataFrame({
         "Protocol": ["IKE / ISAKMP", "ESP", "Other"],
         "Packets": [
             a["ike"]["packet_count"],
             a["esp"]["packet_count"],
-            max(result["packet_count"] - a["ike"]["packet_count"] - a["esp"]["packet_count"], 0)
+            max(
+                result["packet_count"]
+                - a["ike"]["packet_count"]
+                - a["esp"]["packet_count"],
+                0
+            )
         ]
-    }).set_index("Protocol")
-    st.bar_chart(chart)
+    })
+
+st.bar_chart(
+    chart,
+    x="Protocol",
+    y="Packets",
+    color=["#502D55", "#935073", "#F6DBC0"],
+    use_container_width=True
+)
 
     st.subheader("Security Assessment")
     for f in findings:
