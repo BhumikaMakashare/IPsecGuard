@@ -390,10 +390,10 @@ def show_result(result):
             "WARNING": '<span class="status-dot status-warning">●</span>',
             "UNKNOWN": '<span class="status-dot status-unknown">?</span>'
          }.get(f["status"], '<span class="status-dot">●</span>')
-       with st.expander(
+         with st.expander(
             f'{icon} {f["status"]} — {f["check"]}',
             expanded=(f["status"] == "PASS" and f == findings[0])
-        ):
+            ):
 
     st.subheader("Observed Security Associations")
     sa_rows = []
