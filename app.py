@@ -94,7 +94,38 @@ h3 {
     color: #F8F4E9 !important;
     border-color: #935073 !important;
 }
+/* =========================
+   Network Endpoints
+   ========================= */
 
+.endpoint-line {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 11px 14px;
+    margin: 7px 0;
+    
+    background: rgba(255, 255, 255, 0.55);
+    
+    border-left: 3px solid #935073;
+    border-bottom: 1px solid rgba(147, 80, 115, 0.22);
+    
+    color: #502D55;
+    
+    font-family: monospace;
+    font-size: 0.92rem;
+}
+
+.endpoint-address {
+    color: #502D55;
+    font-weight: 600;
+}
+
+.endpoint-arrow {
+    color: #935073;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
 </style>
 """, unsafe_allow_html=True)
 
