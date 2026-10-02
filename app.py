@@ -41,6 +41,59 @@ st.markdown("""
 
     color: #502D55;
 }
+/* =========================
+   IPsecGuard Brand Identity
+   ========================= */
+
+h1 {
+    color: #502D55 !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.8px;
+}
+
+h2 {
+    color: #502D55 !important;
+    font-weight: 750 !important;
+    letter-spacing: -0.3px;
+}
+
+h3 {
+    color: #935073 !important;
+    font-weight: 700 !important;
+}
+
+/* Small descriptive text */
+.stCaption {
+    color: #935073 !important;
+}
+
+/* Primary action */
+.stButton > button[kind="primary"] {
+    background: #502D55 !important;
+    color: #F8F4E9 !important;
+    border: 1px solid #502D55 !important;
+    font-weight: 700 !important;
+}
+
+.stButton > button[kind="primary"]:hover {
+    background: #935073 !important;
+    border-color: #935073 !important;
+    color: #F8F4E9 !important;
+}
+
+/* Secondary buttons */
+.stButton > button {
+    background: transparent !important;
+    color: #502D55 !important;
+    border: 1px solid #935073 !important;
+    font-weight: 600 !important;
+}
+
+.stButton > button:hover {
+    background: #935073 !important;
+    color: #F8F4E9 !important;
+    border-color: #935073 !important;
+}
 
 </style>
 """, unsafe_allow_html=True)
