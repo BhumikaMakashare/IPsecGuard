@@ -1,0 +1,31 @@
+[theme]
+
+base = "light"
+
+primaryColor = "#502D55"
+
+backgroundColor = "#F8F4E9"
+
+secondaryBackgroundColor = "#FFFFFF"
+
+textColor = "#2E2430"
+
+borderColor = "#D8C6D2"
+
+dataframeBorderColor = "#D8C6D2"
+
+dataframeHeaderBackgroundColor = "#F6DBC0"
+
+showWidgetBorder = true
+
+chartCategoricalColors = [
+    "#502D55",
+    "#935073",
+    "#F6DBC0"
+]
+
+linkColor = "#502D55"
+
+codeTextColor = "#502D55"
+
+codeBackgroundColor = "#F6DBC0"
