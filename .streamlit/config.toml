@@ -10,11 +10,11 @@ secondaryBackgroundColor = "#FFFFFF"
 
 textColor = "#2E2430"
 
-borderColor = "#D8C6D2"
+borderColor = "#935073"
 
-dataframeBorderColor = "#D8C6D2"
+dataframeBorderColor = "#935073"
 
-dataframeHeaderBackgroundColor = "#F6DBC0"
+dataframeHeaderBackgroundColor = "#502D55"
 
 showWidgetBorder = true
 
