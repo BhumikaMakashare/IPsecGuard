@@ -204,13 +204,14 @@ h3 {
    ========================= */
 
 .ipsec-header {
-    padding: 18px 0 22px 0;
-    border-bottom: 1px solid rgba(147, 80, 115, 0.30);
-    margin-bottom: 24px;
+    background: #502D55;
+    padding: 22px 24px 24px 24px;
+    margin: -1rem -1rem 28px -1rem;
+    border-bottom: 3px solid #935073;
 }
 
 .ipsec-brand {
-    color: #502D55;
+    color: #F8F4E9;
     font-size: 2.25rem;
     font-weight: 800;
     letter-spacing: -1px;
@@ -218,30 +219,28 @@ h3 {
 }
 
 .ipsec-tagline {
-    color: #935073;
+    color: #F6DBC0;
     font-size: 0.92rem;
-    margin-top: 6px;
+    margin-top: 7px;
     letter-spacing: 0.1px;
 }
 /* =========================
    Footer
    ========================= */
-
 .ipsec-footer {
-    margin-top: 55px;
-    padding: 18px 0;
-    border-top: 1px solid rgba(147, 80, 115, 0.30);
-
+    background: #502D55;
+    margin: 55px -1rem -1rem -1rem;
+    padding: 18px 24px;
+    border-top: 3px solid #935073;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    color: #935073;
+    color: #F6DBC0;
     font-size: 0.78rem;
 }
 
 .ipsec-footer span:first-child {
-    color: #502D55;
+    color: #F8F4E9;
     font-weight: 700;
 }
 
