@@ -127,6 +127,33 @@ h3 {
     font-size: 1.1rem;
     font-weight: 700;
 }
+/* =========================
+   Security Association Table
+   ========================= */
+
+[data-testid="stDataFrame"] {
+    border: 1px solid rgba(147, 80, 115, 0.35);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* Table header */
+[data-testid="stDataFrame"] [role="columnheader"] {
+    background: #502D55 !important;
+    color: #F8F4E9 !important;
+    font-weight: 700 !important;
+}
+
+/* Table body */
+[data-testid="stDataFrame"] [role="gridcell"] {
+    color: #502D55 !important;
+    background: #F8F4E9 !important;
+}
+
+/* Subtle row separation */
+[data-testid="stDataFrame"] [role="row"] {
+    border-bottom: 1px solid rgba(147, 80, 115, 0.16);
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -254,7 +281,14 @@ def show_result(result):
             "Packets": sa["packet_count"],
             "Sequences": ", ".join(map(str, sa["sequence_numbers"]))
         })
-    st.dataframe(pd.DataFrame(sa_rows), use_container_width=True, hide_index=True)
+    sa_df = pd.DataFrame(sa_rows)
+
+    st.dataframe(
+        sa_df,
+        use_container_width=True,
+        hide_index=True,
+        height=260
+    )
 
     st.subheader("Traffic Features")
     feats = result["flow_features"]
