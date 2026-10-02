@@ -244,28 +244,7 @@ h3 {
     color: #502D55;
     font-weight: 700;
 }
-/* =========================
-   Soft Component Borders
-   ========================= */
 
-[data-testid="stExpander"] {
-    border: 1px solid #935073 !important;
-    border-radius: 4px !important;
-    background: transparent !important;
-}
-
-[data-testid="stFileUploader"] {
-    border: 1px solid #935073 !important;
-    background: transparent !important;
-}
-
-[data-testid="stFileUploaderDropzone"] {
-    background: #F8F4E9 !important;
-}
-
-[data-testid="stFileUploaderDropzoneInstructions"] {
-    color: #935073 !important;
-}
 </style>
 """, unsafe_allow_html=True)
 
