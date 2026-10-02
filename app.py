@@ -15,154 +15,32 @@ st.set_page_config(page_title="IPsecGuard", page_icon="🛡️", layout="wide")
 st.markdown("""
 <style>
 
-    /* ===== IPSECGUARD COLOR SYSTEM =====
-       Ultra Violet: #5B2A86
-       Dark Violet:  #3E1F5B
-       Soft Apricot: #F6B48F
-       Light Apricot: #FDE4D4
-       Background:   #FAF7FC
-    */
+.stApp {
+    background:
+        radial-gradient(
+            ellipse 55% 38% at 8% 8%,
+            rgba(80, 45, 85, 0.13),
+            transparent 72%
+        ),
+        radial-gradient(
+            ellipse 48% 42% at 92% 18%,
+            rgba(147, 80, 115, 0.10),
+            transparent 72%
+        ),
+        radial-gradient(
+            ellipse 55% 45% at 72% 82%,
+            rgba(80, 45, 85, 0.08),
+            transparent 75%
+        ),
+        radial-gradient(
+            ellipse 42% 38% at 18% 88%,
+            rgba(147, 80, 115, 0.07),
+            transparent 75%
+        ),
+        #F8F4E9;
 
-    /* Main application background */
-    .stApp {
-        background: #FAF7FC;
-        color: #211A26;
-    }
-
-    /* Main content */
-    [data-testid="stAppViewContainer"] {
-        background: #FAF7FC;
-    }
-
-    [data-testid="stMain"] {
-        background: #FAF7FC;
-    }
-
-    /* Header */
-    [data-testid="stHeader"] {
-        background: rgba(250, 247, 252, 0.96);
-    }
-
-    /* Main title */
-    h1 {
-        color: #5B2A86 !important;
-        font-weight: 700 !important;
-        letter-spacing: -0.5px;
-    }
-
-    /* Section headings */
-    h2, h3 {
-        color: #3E1F5B !important;
-        font-weight: 650 !important;
-    }
-
-    /* Normal text */
-    p, li, label {
-        color: #211A26;
-    }
-
-    /* Caption / secondary text */
-    [data-testid="stCaptionContainer"] {
-        color: #6F6575 !important;
-    }
-
-    /* Primary buttons */
-    .stButton > button {
-        border: 1px solid #5B2A86;
-        border-radius: 8px;
-        font-weight: 600;
-        transition: all 0.2s ease;
-    }
-
-    .stButton > button[kind="primary"] {
-        background: #5B2A86;
-        color: white;
-        border: 1px solid #5B2A86;
-    }
-
-    .stButton > button[kind="primary"]:hover {
-        background: #3E1F5B;
-        border-color: #3E1F5B;
-    }
-
-    /* Metric blocks */
-    [data-testid="stMetric"] {
-        background: white;
-        border: 1px solid #DED3E8;
-        border-left: 4px solid #5B2A86;
-        border-radius: 8px;
-        padding: 14px 16px;
-    }
-
-    [data-testid="stMetricLabel"] {
-        color: #6F6575 !important;
-    }
-
-    [data-testid="stMetricValue"] {
-        color: #5B2A86 !important;
-        font-weight: 700 !important;
-    }
-
-    /* Expanders */
-    [data-testid="stExpander"] {
-        background: white;
-        border: 1px solid #DED3E8;
-        border-radius: 8px;
-    }
-
-    [data-testid="stExpander"] summary {
-        color: #3E1F5B;
-        font-weight: 600;
-    }
-
-    /* File uploader */
-    [data-testid="stFileUploader"] {
-        background: white;
-        border: 1px dashed #BFA8D0;
-        border-radius: 8px;
-        padding: 8px;
-    }
-
-    /* Info message */
-    [data-testid="stAlert"] {
-        border-radius: 8px;
-    }
-
-    /* Code / endpoint areas */
-    [data-testid="stCode"] {
-        border-left: 3px solid #F6B48F;
-    }
-
-    /* Dataframes */
-    [data-testid="stDataFrame"] {
-        border: 1px solid #DED3E8;
-        border-radius: 8px;
-    }
-
-    /* Download buttons */
-    [data-testid="stDownloadButton"] button {
-        background: #F6B48F;
-        color: #3E1F5B;
-        border: 1px solid #E8A078;
-        border-radius: 8px;
-        font-weight: 600;
-    }
-
-    [data-testid="stDownloadButton"] button:hover {
-        background: #EFA477;
-        border-color: #D98E68;
-        color: #3E1F5B;
-    }
-
-    /* Links */
-    a {
-        color: #5B2A86 !important;
-    }
-
-    /* Horizontal separators */
-    hr {
-        border-color: #DED3E8;
-    }
+    color: #502D55;
+}
 
 </style>
 """, unsafe_allow_html=True)
