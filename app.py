@@ -131,28 +131,60 @@ h3 {
    Security Association Table
    ========================= */
 
-[data-testid="stDataFrame"] {
-    border: 1px solid rgba(147, 80, 115, 0.35);
-    border-radius: 6px;
+.sa-table {
+    width: 100%;
     overflow: hidden;
+    border: 1px solid #935073;
+    margin-top: 8px;
 }
 
-/* Table header */
-[data-testid="stDataFrame"] [role="columnheader"] {
-    background: #502D55 !important;
-    color: #F8F4E9 !important;
-    font-weight: 700 !important;
+/* Header */
+.sa-table-header {
+    display: grid;
+    grid-template-columns: 1.1fr 1.1fr 1fr 0.8fr 1fr;
+
+    background: #502D55;
+    color: #F8F4E9;
+
+    font-weight: 700;
+    font-size: 0.88rem;
+
+    padding: 12px 10px;
+
+    border-bottom: 2px solid #935073;
 }
 
-/* Table body */
-[data-testid="stDataFrame"] [role="gridcell"] {
-    color: #502D55 !important;
-    background: #F8F4E9 !important;
+/* Rows */
+.sa-table-row {
+    display: grid;
+    grid-template-columns: 1.1fr 1.1fr 1fr 0.8fr 1fr;
+
+    background: #F8F4E9;
+    color: #502D55;
+
+    font-size: 0.86rem;
+
+    padding: 10px;
+
+    border-bottom: 1px solid #935073;
 }
 
-/* Subtle row separation */
-[data-testid="stDataFrame"] [role="row"] {
-    border-bottom: 1px solid rgba(147, 80, 115, 0.16);
+/* Remove last unnecessary line */
+.sa-table-row:last-child {
+    border-bottom: none;
+}
+
+/* Individual cells */
+.sa-table-header > div,
+.sa-table-row > div {
+    padding: 2px 8px;
+    overflow-wrap: anywhere;
+}
+
+/* Subtle vertical structure */
+.sa-table-header > div:not(:last-child),
+.sa-table-row > div:not(:last-child) {
+    border-right: 1px solid #935073;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -281,14 +313,32 @@ def show_result(result):
             "Packets": sa["packet_count"],
             "Sequences": ", ".join(map(str, sa["sequence_numbers"]))
         })
-    sa_df = pd.DataFrame(sa_rows)
-
-    st.dataframe(
-        sa_df,
-        use_container_width=True,
-        hide_index=True,
-        height=260
-    )
+    st.markdown("""
+    <div class="sa-table">
+        <div class="sa-table-header">
+            <div>Source</div>
+            <div>Destination</div>
+            <div>SPI</div>
+            <div>Packets</div>
+            <div>Sequences</div>
+        </div>
+    """, unsafe_allow_html=True)
+    
+    for row in sa_rows:
+        st.markdown(
+            f"""
+            <div class="sa-table-row">
+                <div>{row["Source"]}</div>
+                <div>{row["Destination"]}</div>
+                <div>{row["SPI"]}</div>
+                <div>{row["Packets"]}</div>
+                <div>{row["Sequences"]}</div>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+    
+    st.markdown("</div>", unsafe_allow_html=True)
 
     st.subheader("Traffic Features")
     feats = result["flow_features"]
