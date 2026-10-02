@@ -2,6 +2,7 @@
 import io
 import json
 from pathlib import Path
+import altair as alt
 
 import pandas as pd
 import streamlit as st
@@ -194,13 +195,48 @@ def show_result(result):
              ]
          })
         
-    st.bar_chart(
-            chart,
-            x="Protocol",
-            y="Packets",
-            color="#502D55",
-            use_container_width=True
+    graph = (
+        alt.Chart(chart)
+        .mark_bar(
+            cornerRadiusTopLeft=4,
+            cornerRadiusTopRight=4
         )
+        .encode(
+            x=alt.X(
+                "Protocol:N",
+                sort=["IKE / ISAKMP", "ESP", "Other"],
+                title="Protocol",
+                axis=alt.Axis(
+                    labelColor="#502D55",
+                    titleColor="#502D55"
+                )
+            ),
+            y=alt.Y(
+                "Packets:Q",
+                title="Packets",
+                axis=alt.Axis(
+                    labelColor="#935073",
+                    titleColor="#935073",
+                    gridColor="#D8C6D2"
+                )
+            ),
+            color=alt.Color(
+                "Protocol:N",
+                scale=alt.Scale(
+                    domain=["IKE / ISAKMP", "ESP", "Other"],
+                    range=["#502D55", "#935073", "#F6DBC0"]
+                ),
+                legend=None
+            ),
+            tooltip=[
+                alt.Tooltip("Protocol:N", title="Protocol"),
+                alt.Tooltip("Packets:Q", title="Packets")
+            ]
+        )
+         .properties(height=320)
+        )
+        
+    st.altair_chart(graph, use_container_width=True)
     
     st.subheader("Security Assessment")
     for f in findings:
